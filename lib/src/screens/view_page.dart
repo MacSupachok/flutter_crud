@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_crud_test/src/API/users_api.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -68,12 +67,10 @@ class _ViewPageState extends State<ViewPage> {
         title: const Text('View Page'),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.exit_to_app_outlined),
-            onPressed: () async {
-              bool exitConfirmed = await _showExitConfirmationDialog(context);
-              if (exitConfirmed) {
-                SystemNavigator.pop();
-              }
+            icon: const Icon(Icons.refresh), // The refresh icon
+            onPressed: () {
+              // Add the logic to refresh your data here
+              getData();
             },
           ),
         ],
